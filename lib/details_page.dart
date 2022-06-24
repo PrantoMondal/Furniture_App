@@ -54,7 +54,8 @@ class _FurnitureDetailsState extends State<FurnitureDetails> {
                   child: Text(widget.furniture.details!),
                 ),
               ]),
-          )
+          ),
+
         ],
       ),
     );

@@ -16,11 +16,34 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Furniture Dev'),
+          toolbarHeight: 200, // Set this height
+          flexibleSpace: Container(
+            color: Colors.white,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Image.asset('assets/icons/a.png',height: 30,width: 30,),
+                      Image.asset('assets/icons/em.png',height: 30,width: 30,),
+                    ],
+                  ),
+                ),
+                Text('1'),
+                Text('2'),
+                Text('3'),
+                Text('4'),
+              ],
+            ),
+          ),
         ),
         body: GridView.count(
           crossAxisCount: 1,
           childAspectRatio: 3,
+          padding: const EdgeInsets.all(8.0) ,
           children: furnitureList
               .map((furniture) => FurnitureItem(furniture: furniture))
               .toList(),
@@ -53,7 +76,7 @@ class FurnitureItem extends StatelessWidget {
                       color: Colors.white,
                       child: Image.asset(
                         furniture.image!,
-                        height: 150,
+                        height: 130,
                         width: 150,
                         fit: BoxFit.cover,
                       )),
@@ -64,11 +87,11 @@ class FurnitureItem extends StatelessWidget {
                   children: [
                     Container(
                       margin: const EdgeInsets.only(
-                          top: 30, left: 50.0, right: 20.0),
+                          top: 20, left: 50.0, right: 20.0),
                       child: (Text(
                         furniture.name!,
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: 20, fontWeight: FontWeight.bold,color: Colors.black54),
                       )),
                     ),
                     Container(
@@ -78,6 +101,7 @@ class FurnitureItem extends StatelessWidget {
                         furniture.type!,
                         style: TextStyle(
                           fontSize: 12,
+                          color: Colors.grey
                         ),
                       )),
                     ),
@@ -103,7 +127,7 @@ class FurnitureItem extends StatelessWidget {
                       child: (Text(
                         '\$' + '${furniture.price}',
                         style: TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.bold),
+                            fontSize: 15, fontWeight: FontWeight.bold),
                       )),
                     ),
                   ],
