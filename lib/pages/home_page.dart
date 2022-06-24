@@ -17,18 +17,20 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         appBar: AppBar(
           title: Text('Furniture Dev'),
-
         ),
         body: GridView.count(
           crossAxisCount: 1,
           childAspectRatio: 3,
-          children: furnitureList.map((furniture) => FurnitureItem(furniture: furniture)).toList(),
-    ));
+          children: furnitureList
+              .map((furniture) => FurnitureItem(furniture: furniture))
+              .toList(),
+        ));
   }
 }
 
 class FurnitureItem extends StatelessWidget {
   final Furniture furniture;
+
   const FurnitureItem({
     Key? key,
     required this.furniture,
@@ -37,48 +39,84 @@ class FurnitureItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20)
-      ),
-      color: Colors.blue.shade50,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        color: Colors.blue.shade50,
         child: Stack(
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20),
-
                   child: Container(
-
                       //margin: const EdgeInsets.only(left: 20.0,right: 20.0),
                       color: Colors.white,
-                      child: Image.asset(furniture.image!,width:120,fit: BoxFit.cover,)
-                  ),
+                      child: Image.asset(
+                        furniture.image!,
+                        height: 150,
+                        width: 150,
+                        fit: BoxFit.cover,
+                      )),
                 ),
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(furniture.name!,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                    Text(furniture.type!),
-                    Text('\$'+furniture.price!.toString()),
+                    Container(
+                      margin: const EdgeInsets.only(
+                          top: 30, left: 50.0, right: 20.0),
+                      child: (Text(
+                        furniture.name!,
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      )),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(
+                          top: 5, left: 50.0, right: 20.0),
+                      child: (Text(
+                        furniture.type!,
+                        style: TextStyle(
+                          fontSize: 12,
+                        ),
+                      )),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(
+                          top: 5, left: 50.0, right: 20.0),
+                      child: Row(
+                        children: [
+                          (Icon(
+                            Icons.star,
+                            color: Colors.yellow,size: 20,
+                          )),
+                          Text('${furniture.rating}',
+                              style: TextStyle(
+                                fontSize: 16,
+                              ))
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(
+                          top: 10, left: 50.0, right: 20.0),
+                      child: (Text(
+                        '\$' + '${furniture.price}',
+                        style: TextStyle(
+                            fontSize: 25, fontWeight: FontWeight.bold),
+                      )),
+                    ),
                   ],
                 ),
               ],
-
             ),
             Positioned(
-              right: 10,bottom: 10,
-              child: ElevatedButton(
-                  onPressed: (){},
-                  child: Text('Details')),
+              right: 10,
+              bottom: 10,
+              child: ElevatedButton(onPressed: () =>Navigator.push(context, MaterialPageRoute(builder: (context)=>FurnitureDetails(
+                  furniture))), child: Text('Details')),
             )
           ],
-        )
-
-    );
+        ));
   }
 }
-
-
