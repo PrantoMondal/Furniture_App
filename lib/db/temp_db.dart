@@ -21,7 +21,7 @@ final furnitureList = [
       rating: 4.3),
   Furniture(
       id: 3,
-      name: 'Ladderback Chair',
+      name: 'Ladder back',
       details:
           'The Ladderback chair was one of the most popular chairs of the 17th- 18th century. '
           'It achieved such success by the simplicity of construction, clear design, and affordable price. Today these chairs are coveted items for collectors.',
