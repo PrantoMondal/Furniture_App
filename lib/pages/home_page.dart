@@ -3,6 +3,7 @@ import 'package:furniture_app/db/temp_db.dart';
 import 'package:furniture_app/details_page.dart';
 
 import '../models/models.dart';
+import '../widgets/category_button.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -16,11 +17,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     Color color1 = _colorFromHex("#4F4F4F");
     Color color2 = _colorFromHex("#9C9C9C");
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
+    List<bool> _selections = List.generate(3, (_) => false);
+    return Scaffold(
         appBar: AppBar(
-          toolbarHeight: 220, // Set this height
+          toolbarHeight: 285, // Set this height
           flexibleSpace: Container(
             color: Colors.white,
             child: Column(
@@ -86,18 +86,16 @@ class _HomePageState extends State<HomePage> {
                   ),
 
                 ),
-
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: categoryBtn(),
+                )
               ],
             ),
+
           ),
 
-          bottom:TabBar(
-            tabs: [
-              Tab(text: 'tab 1',icon: Icon(Icons.home),),
-              Tab(text: 'tab 2'),
-              Tab(text: 'tab 3'),
-            ],
-          ),
+
         ),
         body: GridView.count(
           crossAxisCount: 1,
@@ -107,8 +105,8 @@ class _HomePageState extends State<HomePage> {
               .map((furniture) => FurnitureItem(furniture: furniture))
               .toList(),
         ),
-        bottomNavigationBar: BottomAppBar(),
-      ),
+
+
     );
   }
 }
@@ -199,24 +197,24 @@ class FurnitureItem extends StatelessWidget {
                             children: [
                               Icon(
                                 Icons.star,
-                                color: Colors.yellow,
+                                color: Colors.amber,
                                 size: 20,
                               ),
                               Icon(
                                 Icons.star,
-                                color: Colors.yellow,
+                                color: Colors.amber,
                                 size: 20,
                               ), Icon(
                                 Icons.star,
-                                color: Colors.yellow,
+                                color: Colors.amber,
                                 size: 20,
                               ), Icon(
                                 Icons.star,
-                                color: Colors.yellow,
+                                color: Colors.amber,
                                 size: 20,
                               ), Icon(
                                 Icons.star,
-                                color: Colors.yellow,
+                                color: Colors.amber,
                                 size: 20,
                               ),
                             ],
