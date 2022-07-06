@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
                   fontSize: 12,
                   color: color2,
                   fontFamily: 'Poppins',),),
-                const Padding(
+                Padding(
                   padding: EdgeInsets.only(left: 15.0, right: 15.0),
                   child: TextField(
                     decoration: InputDecoration(

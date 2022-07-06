@@ -8,29 +8,41 @@ class categoryBtn extends StatefulWidget {
 class _CategoryBtnState extends State<categoryBtn> {
   List<bool> isSelected = [true, false, false];
 
+
   @override
-  Widget build(BuildContext context) => Container(
-    color: Colors.green.withOpacity(0.5),
+  Widget build(BuildContext context) {
+    Color buttonSelectedColor = _colorFromHex("#00B2FF");
+    Color buttonUnselectedColor = _colorFromHex("#EFFAFF");
+    return Container(
+
+      decoration: BoxDecoration(
+        color: buttonUnselectedColor,
+        borderRadius: BorderRadius.all(Radius.circular(16)),
+      ),
+    //color: buttonUnselectedColor,
+
     child: ToggleButtons(
+
+      borderRadius: BorderRadius.all(Radius.circular(16)),
       isSelected: isSelected,
       selectedColor: Colors.white,
       color: Colors.black,
-      fillColor: Colors.lightBlue.shade900,
+      fillColor: buttonSelectedColor,
       renderBorder: false,
       //splashColor: Colors.red,
       highlightColor: Colors.orange,
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12),
-          child: Text('For Rent', style: TextStyle(fontSize: 18)),
+          padding: const EdgeInsets.all(12),
+          child: Text('Chair', style: TextStyle(fontSize: 18)),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12),
-          child: Text('For Sale', style: TextStyle(fontSize: 18)),
+          padding: const EdgeInsets.all(12),
+          child: Text('Table', style: TextStyle(fontSize: 18)),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12),
-          child: Text('Sold', style: TextStyle(fontSize: 18)),
+          padding: const EdgeInsets.all(12),
+          child: Text('Bed', style: TextStyle(fontSize: 18)),
         ),
       ],
       onPressed: (int newIndex) {
@@ -46,4 +58,10 @@ class _CategoryBtnState extends State<categoryBtn> {
       },
     ),
   );
+  }
+}
+
+Color _colorFromHex(String hexColor) {
+  final hexCode = hexColor.replaceAll('#', '');
+  return Color(int.parse('FF$hexCode', radix: 16));
 }
