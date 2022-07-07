@@ -22,7 +22,6 @@ class _CategoryBtnState extends State<categoryBtn> {
     //color: buttonUnselectedColor,
 
     child: ToggleButtons(
-
       borderRadius: BorderRadius.all(Radius.circular(16)),
       isSelected: isSelected,
       selectedColor: Colors.white,

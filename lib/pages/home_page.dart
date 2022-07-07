@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     Color color1 = _colorFromHex("#4F4F4F");
     Color color2 = _colorFromHex("#9C9C9C");
-    List<bool> _selections = List.generate(3, (_) => false);
+    Color color3 = _colorFromHex("#00B2FF");
     return Scaffold(
         appBar: AppBar(
           toolbarHeight: 285, // Set this height
@@ -100,13 +100,62 @@ class _HomePageState extends State<HomePage> {
         body: GridView.count(
           crossAxisCount: 1,
           childAspectRatio: 2.416,
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 22,vertical: 8),
           children: furnitureList
               .map((furniture) => FurnitureItem(furniture: furniture))
               .toList(),
         ),
+        bottomNavigationBar: Row(
+          children: <Widget>[
+            Container(
+              height: 45,
+              width: MediaQuery.of(context).size.width/5,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                //color: Colors.white
+              ),
 
+              child: Icon(Icons.home,color: Colors.black38,),
+            ),
+            Container(
+              height:45,
+              width: MediaQuery.of(context).size.width/5,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                //color: Colors.white
+              ),
 
+              child: Icon(Icons.search),
+            ),Container(
+              height: 45,
+              width: MediaQuery.of(context).size.width/5,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                color: color3
+              ),
+
+              child: Icon(Icons.add),
+            ),Container(
+              height: 45,
+              width: MediaQuery.of(context).size.width/5,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                //color: Colors.white
+              ),
+
+              child: Icon(Icons.chat_bubble_outline),
+            ),Container(
+              height: 45,
+              width: MediaQuery.of(context).size.width/5,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                //color: Colors.white
+              ),
+
+              child: Icon(Icons.person),
+            ),
+          ],
+        ),
     );
   }
 }
@@ -127,7 +176,7 @@ class FurnitureItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(11)),
         color: Colors.blue.shade50,
         child: InkWell(
           child: Container(
