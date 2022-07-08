@@ -2,17 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:furniture_app/db/temp_db.dart';
 import 'package:furniture_app/details_page.dart';
 
+
 import '../models/models.dart';
 import '../widgets/category_button.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
 
+  const HomePage({Key? key}) : super(key: key);
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+  int _selectedItemIndex = 2;
   @override
   Widget build(BuildContext context) {
     Color color1 = _colorFromHex("#4F4F4F");
@@ -107,55 +109,36 @@ class _HomePageState extends State<HomePage> {
         ),
         bottomNavigationBar: Row(
           children: <Widget>[
-            Container(
-              height: 45,
-              width: MediaQuery.of(context).size.width/5,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-                //color: Colors.white
-              ),
+            buildNavBarItem(Icons.home, 0, false),
+            buildNavBarItem(Icons.search, 1, false),
+            buildNavBarItem(Icons.add, 2, false),
+            buildNavBarItem(Icons.chat_bubble_outline_rounded, 3, false),
+            buildNavBarItem(Icons.person, 4, false),
 
-              child: Icon(Icons.home,color: Colors.black38,),
-            ),
-            Container(
-              height:45,
-              width: MediaQuery.of(context).size.width/5,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-                //color: Colors.white
-              ),
-
-              child: Icon(Icons.search),
-            ),Container(
-              height: 45,
-              width: MediaQuery.of(context).size.width/5,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-                color: color3
-              ),
-
-              child: Icon(Icons.add),
-            ),Container(
-              height: 45,
-              width: MediaQuery.of(context).size.width/5,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-                //color: Colors.white
-              ),
-
-              child: Icon(Icons.chat_bubble_outline),
-            ),Container(
-              height: 45,
-              width: MediaQuery.of(context).size.width/5,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-                //color: Colors.white
-              ),
-
-              child: Icon(Icons.person),
-            ),
           ],
         ),
+    );
+  }
+
+  Widget buildNavBarItem(IconData icon,int index,bool isActive) {
+
+    return GestureDetector(
+      onTap: (){
+        setState((){
+          _selectedItemIndex == index;
+        });
+
+      },
+      child: Container(
+                height: 50,
+                width: MediaQuery.of(context).size.width/5,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                    color:index == _selectedItemIndex? Colors.blue:Colors.transparent
+                ),
+
+                child: Icon(icon,color:index == _selectedItemIndex? Colors.white:Colors.black),
+              ),
     );
   }
 }
