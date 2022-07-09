@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/db/temp_db.dart';
 import 'package:furniture_app/details_page.dart';
-
-
 import '../models/models.dart';
 import '../widgets/category_button.dart';
+
 
 class HomePage extends StatefulWidget {
 
@@ -15,6 +14,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedItemIndex = 2;
+
   @override
   Widget build(BuildContext context) {
     Color color1 = _colorFromHex("#4F4F4F");
@@ -22,14 +22,14 @@ class _HomePageState extends State<HomePage> {
     Color color3 = _colorFromHex("#00B2FF");
     return Scaffold(
         appBar: AppBar(
-          toolbarHeight: 285, // Set this height
+          toolbarHeight:  MediaQuery.of(context).size.height*.39, // Set this height
           flexibleSpace: Container(
             color: Colors.white,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.only(bottom: 0,top: 12,left: 16,right: 16),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -58,13 +58,19 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
-                Text('Chose your Best Furniture', style: TextStyle(fontSize: 24,
+                Text('Choose your Best Furniture', style: TextStyle(fontSize:  MediaQuery
+                    .of(context)
+                    .size
+                    .height*.0369,
                   fontWeight: FontWeight.bold,
                   color: color1,
                   fontFamily: 'Roboto',),),
                 Text('best and high quality furniture', style: TextStyle(
-                  height: 2,
-                  fontSize: 12,
+                  height: MediaQuery.of(context).size.height*0.0020,
+                  fontSize: MediaQuery
+                      .of(context)
+                      .size
+                      .height*.02,
                   color: color2,
                   fontFamily: 'Poppins',),),
                 Padding(
@@ -84,6 +90,10 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.all(Radius.circular(10.0)),
                         borderSide: BorderSide(color: Colors.blue),
                       ),
+                      contentPadding: EdgeInsets.symmetric(vertical:  MediaQuery
+                          .of(context)
+                          .size
+                          .height*0.02,),
                     ),
                   ),
 
@@ -96,6 +106,7 @@ class _HomePageState extends State<HomePage> {
             ),
 
           ),
+          elevation: 0,
 
 
         ),
@@ -107,40 +118,111 @@ class _HomePageState extends State<HomePage> {
               .map((furniture) => FurnitureItem(furniture: furniture))
               .toList(),
         ),
-        bottomNavigationBar: Row(
-          children: <Widget>[
-            buildNavBarItem(Icons.home, 0, false),
-            buildNavBarItem(Icons.search, 1, false),
-            buildNavBarItem(Icons.add, 2, false),
-            buildNavBarItem(Icons.chat_bubble_outline_rounded, 3, false),
-            buildNavBarItem(Icons.person, 4, false),
 
-          ],
-        ),
-    );
-  }
+      floatingActionButton: FloatingActionButton(
+        onPressed: () { },
+        //tooltip: 'Increment',
+        child: Icon(Icons.add,),
+        elevation: 5.0,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        notchMargin: 10,
+        child: Container(
+          height: 50,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget> [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  MaterialButton(
+                    minWidth: MediaQuery.of(context).size.width*.20,
+                      onPressed: (){
+                      setState((){
 
-  Widget buildNavBarItem(IconData icon,int index,bool isActive) {
+                      });
+                  },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.home_outlined,
+                          //color: isActive?Colors.blue:Colors.black,
+                        )
+                      ],
+                    ),
+                  ),
+                  MaterialButton(
+                    minWidth: MediaQuery.of(context).size.width*.20,
+                      onPressed: (){
+                      setState((){
 
-    return GestureDetector(
-      onTap: (){
-        setState((){
-          _selectedItemIndex == index;
-        });
-
-      },
-      child: Container(
-                height: 50,
-                width: MediaQuery.of(context).size.width/5,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                    color:index == _selectedItemIndex? Colors.blue:Colors.transparent
-                ),
-
-                child: Icon(icon,color:index == _selectedItemIndex? Colors.white:Colors.black),
+                      });
+                  },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.search_outlined,
+                          //color: isActive?Colors.blue:Colors.black,
+                        )
+                      ],
+                    ),
+                  ),
+                ],
               ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  MaterialButton(
+                    minWidth: MediaQuery.of(context).size.width*.20,
+                      onPressed: (){
+                      setState((){
+
+                      });
+                  },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.chat_bubble_outline_rounded,
+                          //color: isActive?Colors.blue:Colors.black,
+                        )
+                      ],
+                    ),
+                  ),MaterialButton(
+                    minWidth: MediaQuery.of(context).size.width*.20,
+                      onPressed: (){
+                      setState((){
+
+                      });
+                  },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.person_outline_outlined,
+                          //color: isActive?Colors.blue:Colors.black,
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+
+            ],
+          ),
+        ),
+      ),
+
     );
+
   }
+
+
+
 }
 
 Color _colorFromHex(String hexColor) {
@@ -278,3 +360,4 @@ class FurnitureItem extends StatelessWidget {
     );
   }
 }
+

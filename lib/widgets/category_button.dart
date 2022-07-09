@@ -22,6 +22,7 @@ class _CategoryBtnState extends State<categoryBtn> {
     //color: buttonUnselectedColor,
 
     child: ToggleButtons(
+
       borderRadius: BorderRadius.all(Radius.circular(16)),
       isSelected: isSelected,
       selectedColor: Colors.white,
@@ -32,16 +33,16 @@ class _CategoryBtnState extends State<categoryBtn> {
       highlightColor: Colors.orange,
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.all(12),
-          child: Text('Chair', style: TextStyle(fontSize: 18)),
+          padding: const EdgeInsets.all(16),
+          child: Text('Chair', style: TextStyle(fontSize: MediaQuery.of(context).size.height*0.025)),
         ),
         Padding(
-          padding: const EdgeInsets.all(12),
-          child: Text('Table', style: TextStyle(fontSize: 18)),
+          padding: const EdgeInsets.all(16),
+          child: Text('Table', style: TextStyle(fontSize: MediaQuery.of(context).size.height*0.025)),
         ),
         Padding(
-          padding: const EdgeInsets.all(12),
-          child: Text('Bed', style: TextStyle(fontSize: 18)),
+          padding: const EdgeInsets.all(16),
+          child: Text('Bed', style: TextStyle(fontSize: MediaQuery.of(context).size.height*0.025)),
         ),
       ],
       onPressed: (int newIndex) {
