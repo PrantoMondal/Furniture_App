@@ -34,15 +34,15 @@ class _CategoryBtnState extends State<categoryBtn> {
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.all(16),
-          child: Text('Chair', style: TextStyle(fontSize: MediaQuery.of(context).size.height*0.025)),
+          child: Text('Chair', style: TextStyle(fontSize: MediaQuery.of(context).size.height*0.020)),
         ),
         Padding(
           padding: const EdgeInsets.all(16),
-          child: Text('Table', style: TextStyle(fontSize: MediaQuery.of(context).size.height*0.025)),
+          child: Text('Table', style: TextStyle(fontSize: MediaQuery.of(context).size.height*0.020)),
         ),
         Padding(
           padding: const EdgeInsets.all(16),
-          child: Text('Bed', style: TextStyle(fontSize: MediaQuery.of(context).size.height*0.025)),
+          child: Text('Bed', style: TextStyle(fontSize: MediaQuery.of(context).size.height*0.020)),
         ),
       ],
       onPressed: (int newIndex) {

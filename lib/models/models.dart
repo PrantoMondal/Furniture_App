@@ -4,6 +4,7 @@ class Furniture{
   String? details;
   String? type;
   double? price;
+  double? newPrice;
   String? image;
   double? rating;
 
@@ -13,6 +14,7 @@ class Furniture{
       this.details,
       this.type,
       this.price,
+      this.newPrice,
       this.image,
       this.rating});
 }
