@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/db/temp_db.dart';
-import 'package:furniture_app/details_page.dart';
+import '../details.dart';
 import '../widgets/app_bar.dart';
 import '../widgets/furniture_item.dart';
 
@@ -35,7 +35,8 @@ class _HomePageState extends State<HomePage> {
           onTap: (){
             Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) =>  FurnitureDetails(furniture)));
+                MaterialPageRoute(builder: (context) =>  DetailsPage()));
+
           },
           child: GridView.count(
             crossAxisCount: 1,

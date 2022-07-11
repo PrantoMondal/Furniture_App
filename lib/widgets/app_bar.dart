@@ -19,7 +19,7 @@ class app_bar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(bottom: 0,top: 12,left: 16,right: 16),
+          padding: const EdgeInsets.only(bottom: 0,top: 10,left: 16,right: 16),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -28,7 +28,7 @@ class app_bar extends StatelessWidget {
                   height: MediaQuery
                       .of(context)
                       .size
-                      .height * .06,
+                      .height * .055,
                   width: MediaQuery
                       .of(context)
                       .size
@@ -39,7 +39,7 @@ class app_bar extends StatelessWidget {
                 height: MediaQuery
                     .of(context)
                     .size
-                    .height * .11,
+                    .height * .10,
                 width: MediaQuery
                     .of(context)
                     .size
