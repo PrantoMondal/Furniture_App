@@ -16,16 +16,46 @@ class DetailsPage extends StatelessWidget {
       body: Column(
 
         children: [
-          SizedBox(
-            width: MediaQuery.of(context).size.width*0.8,
-            height: MediaQuery.of(context).size.height*0.4,
-            child: AspectRatio(
-              aspectRatio: 1,
-              child: Image.asset('assets/images/f1.png'),
+          Container(
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width*0.8,
+              height: MediaQuery.of(context).size.height*0.4,
+              child: AspectRatio(
+                aspectRatio: 1,
+                child: Image.asset('assets/images/f1.png'),
+              ),
             ),
           ),Row(
             children: [
+              ButtonBar(
+                alignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Radio(
+                    value: 1,
+                    groupValue: AspectRatio,
+                    activeColor: Colors.red,
+                    onChanged: (val) {
 
+                    },
+                  ),
+                  Radio(
+                    value: 2,
+                    groupValue: AspectRatio,
+                    activeColor: Colors.blue,
+                    onChanged: (val) {
+
+                    },
+                  ),
+                  Radio(
+                    value: 3,
+                    groupValue: AspectRatio,
+                    activeColor: Colors.blue,
+                    onChanged: (val) {
+
+                    },
+                  ),
+                ],
+              )
             ],
           )
         ],
