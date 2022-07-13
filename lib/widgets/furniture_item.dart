@@ -68,31 +68,11 @@ class FurnitureItem extends StatelessWidget {
                           //*****************************************************************        rating
                           child: Row(
                             children: [
-                              Icon(
-                                Icons.star,
-                                color: Colors.amber,
-                                size: 20,
-                              ),
-                              Icon(
-                                Icons.star,
-                                color: Colors.amber,
-                                size: 20,
-                              ),
-                              Icon(
-                                Icons.star,
-                                color: Colors.amber,
-                                size: 20,
-                              ),
-                              Icon(
-                                Icons.star,
-                                color: Colors.amber,
-                                size: 20,
-                              ),
-                              Icon(
-                                Icons.star,
-                                color: Colors.amber,
-                                size: 20,
-                              ),
+                              starBuild(),
+                              starBuild(),
+                              starBuild(),
+                              starBuild(),
+                              starBuild(),
                             ],
                           ),
                         ),
@@ -131,5 +111,13 @@ class FurnitureItem extends StatelessWidget {
           //       MaterialPageRoute(builder: (context) =>  FurnitureDetails(furniture))
           // },
         ));
+  }
+
+  Icon starBuild() {
+    return Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                              size: 20,
+                            );
   }
 }

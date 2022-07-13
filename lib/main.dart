@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:furniture_app/details.dart';
+import 'package:furniture_app/pages/details.dart';
 import 'package:furniture_app/pages/home_page.dart';
 
 void main() {

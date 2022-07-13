@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/db/temp_db.dart';
-import '../details.dart';
+import 'details.dart';
 import '../widgets/app_bar.dart';
 import '../widgets/furniture_item.dart';
 
