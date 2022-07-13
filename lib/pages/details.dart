@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_app/models/models.dart';
 import 'package:furniture_app/widgets/details_page_app_bar.dart';
+
 
 class DetailsPage extends StatelessWidget {
   const DetailsPage({Key? key}) : super(key: key);
@@ -32,6 +34,7 @@ class DetailsPage extends StatelessWidget {
               ),
             ),
           ),
+      // TODO:dot Widget
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
@@ -182,6 +185,14 @@ class DetailsPage extends StatelessWidget {
                     ],
                   ),
                 ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blue, // background
+                    onPrimary: Colors.white, // foreground
+                  ),
+                  onPressed: () { },
+                  child: Text('Add to cart'),
+                )
 
               ],
             ),
