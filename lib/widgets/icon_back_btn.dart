@@ -17,9 +17,6 @@ class IconBackBtn extends StatelessWidget {
       width: 40,
 
         child: FlatButton(
-          shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          color: Colors.white,
           onPressed: () {
             Navigator.pop(context);
           },

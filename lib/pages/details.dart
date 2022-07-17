@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_app/models/models.dart';
+import 'package:furniture_app/pages/home_page.dart';
 import 'package:furniture_app/widgets/details_page_app_bar.dart';
 
 
@@ -41,12 +42,12 @@ class DetailsPage extends StatelessWidget {
 
             ),
             child: Padding(
-              padding: const EdgeInsets.only(top: 16,left: 25),
+              padding: const EdgeInsets.only(top: 12,left: 25),
               child: Text(
                 'Mona Chair',
                 style: TextStyle(
                     fontFamily: 'Poppins',
-                    fontSize: MediaQuery.of(context).size.height * 0.05,
+                    fontSize: MediaQuery.of(context).size.height * 0.04,
                     fontWeight: FontWeight.bold),
               ),
             ),
@@ -68,10 +69,12 @@ class DetailsPage extends StatelessWidget {
           Container(
             alignment: Alignment.topLeft,
             padding: EdgeInsets.only(left: 25,top: 16),
-            child: Text('Lorem Ipsum is simply dummy text of the\nprinting and typesetting. Lorem Ipsum\nhas been standard dummy text.',
+            child: Text('Lorem Ipsum is simply dummy text of the printing and typesetting. Lorem Ipsum has been standard dummy text.',
+                maxLines: 3,
                 style: TextStyle(
                   fontFamily: 'Poppins',
-                  fontSize: MediaQuery.of(context).size.height * 0.025,
+                  color: Colors.black26,
+                  fontSize: MediaQuery.of(context).size.height * 0.020,
                 )),
 
           ),
@@ -185,14 +188,17 @@ class DetailsPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.blue, // background
-                    onPrimary: Colors.white, // foreground
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: AnimatedButton(
+                    child: Text("Rounded Button"),
+                    onTap: () {},
+                    height: 60,
+                    type: null,
+                    borderRadius: 30,
+                    color: Colors.cyan,
                   ),
-                  onPressed: () { },
-                  child: Text('Add to cart'),
-                )
+                ),
 
               ],
             ),

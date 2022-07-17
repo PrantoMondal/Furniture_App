@@ -9,7 +9,7 @@ class DetailsPageAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text('Details',style: TextStyle(color: Colors.black,fontFamily: 'Roboto'),),
+      title: Text('Details',style: TextStyle(color: Colors.black,fontFamily: 'Roboto',fontWeight: FontWeight.bold),),
       centerTitle: true,
       elevation: 0,
       backgroundColor: Color.fromRGBO(222, 245, 255, 1),
@@ -22,12 +22,9 @@ class DetailsPageAppBar extends StatelessWidget {
       ),
       actions: [
         Padding(
-          padding: const EdgeInsets.only(top: 18.0, right: 22.0),
+          padding: const EdgeInsets.only(top: 18.0, right: 12.0),
 
           child: FlatButton(
-            shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            color: Colors.white,
             onPressed: () {
 
             },
