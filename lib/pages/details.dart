@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_app/models/models.dart';
-import 'package:furniture_app/pages/home_page.dart';
+import 'package:furniture_app/pages/checkout_page.dart';
 import 'package:furniture_app/widgets/details_page_app_bar.dart';
 
 
@@ -35,14 +35,12 @@ class DetailsPage extends StatelessWidget {
               ),
             ),
           ),
-      // TODO:dot Widget
+          // TODO:dot Widget
           Container(
             width: double.infinity,
-            decoration: BoxDecoration(
-
-            ),
+            decoration: BoxDecoration(),
             child: Padding(
-              padding: const EdgeInsets.only(top: 12,left: 25),
+              padding: const EdgeInsets.only(top: 12, left: 25),
               child: Text(
                 'Mona Chair',
                 style: TextStyle(
@@ -53,40 +51,39 @@ class DetailsPage extends StatelessWidget {
             ),
           ),
           Container(
-        margin: const EdgeInsets.only(
-            top: 5, left: 20.0, right: 10.0),
-        //*****************************************************************        rating
-        child: Row(
-          children: [
-            buildIcon(),
-            buildIcon(),
-            buildIcon(),
-            buildIcon(),
-            buildIcon(),
-          ],
-        ),
-      ),
+            margin: const EdgeInsets.only(top: 5, left: 20.0, right: 10.0),
+            //*****************************************************************        rating
+            child: Row(
+              children: [
+                buildIcon(),
+                buildIcon(),
+                buildIcon(),
+                buildIcon(),
+                buildIcon(),
+              ],
+            ),
+          ),
           Container(
             alignment: Alignment.topLeft,
-            padding: EdgeInsets.only(left: 25,top: 16),
-            child: Text('Lorem Ipsum is simply dummy text of the printing and typesetting. Lorem Ipsum has been standard dummy text.',
+            padding: EdgeInsets.only(left: 25, top: 16),
+            child: Text(
+                'Lorem Ipsum is simply dummy text of the printing and typesetting. Lorem Ipsum has been standard dummy text.',
                 maxLines: 3,
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   color: Colors.black26,
                   fontSize: MediaQuery.of(context).size.height * 0.020,
                 )),
-
           ),
           Row(
             children: [
               Padding(
-                padding: EdgeInsets.only(left: 25,top: 16),
+                padding: EdgeInsets.only(left: 25, top: 16),
                 child: Container(
                     height: 16,
                     width: 16,
                     decoration: BoxDecoration(
-                        shape: BoxShape.circle,
+                      shape: BoxShape.circle,
                       // border: Border.all(color: Colors.redAccent)
                     ),
                     child: DecoratedBox(
@@ -94,43 +91,40 @@ class DetailsPage extends StatelessWidget {
                         color: Colors.black,
                         shape: BoxShape.circle,
                       ),
-                    )
-                ),
+                    )),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 20,top: 16),
+                padding: EdgeInsets.only(left: 20, top: 16),
                 child: Container(
                     height: 16,
                     width: 16,
                     decoration: BoxDecoration(
-                        shape: BoxShape.circle,
+                      shape: BoxShape.circle,
                     ),
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         color: Colors.pink,
                         shape: BoxShape.circle,
                       ),
-                    )
-                ),
+                    )),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 20,top: 16),
+                padding: EdgeInsets.only(left: 20, top: 16),
                 child: Container(
                     height: 16,
                     width: 16,
                     decoration: BoxDecoration(
-                        shape: BoxShape.circle,
+                      shape: BoxShape.circle,
                     ),
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         color: Colors.indigoAccent,
                         shape: BoxShape.circle,
                       ),
-                    )
-                ),
+                    )),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 20,top: 16),
+                padding: EdgeInsets.only(left: 20, top: 16),
                 child: Container(
                     height: 16,
                     width: 16,
@@ -142,10 +136,10 @@ class DetailsPage extends StatelessWidget {
                         color: Colors.greenAccent,
                         shape: BoxShape.circle,
                       ),
-                    )
-                ),
-              ),Padding(
-                padding: EdgeInsets.only(left: 20,top: 16),
+                    )),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 20, top: 16),
                 child: Container(
                     height: 16,
                     width: 16,
@@ -157,8 +151,7 @@ class DetailsPage extends StatelessWidget {
                         color: Colors.red,
                         shape: BoxShape.circle,
                       ),
-                    )
-                ),
+                    )),
               ),
             ],
           ),
@@ -167,11 +160,10 @@ class DetailsPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 16,left: 25),
+                  padding: const EdgeInsets.only(top: 16, left: 25),
                   child: Row(
                     children: [
-                      (
-                          Text(
+                      (Text(
                         '\$' + '100',
                         style: TextStyle(
                             fontSize: 15,
@@ -189,14 +181,26 @@ class DetailsPage extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: AnimatedButton(
-                    child: Text("Rounded Button"),
-                    onTap: () {},
-                    height: 60,
-                    type: null,
-                    borderRadius: 30,
-                    color: Colors.cyan,
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 40,
+                    width: MediaQuery.of(context).size.width*0.22,
+                    child: RaisedButton(
+                      child: Text("Add to cart",
+                        style: TextStyle(color: Colors.white),
+
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const CheckoutPage()),
+                        );
+                      },
+                      color: Colors.blueAccent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
                   ),
                 ),
 
@@ -210,10 +214,10 @@ class DetailsPage extends StatelessWidget {
 
   Icon buildIcon() {
     return Icon(
-            Icons.star,
-            color: Colors.amber,
-            size: 20,
-          );
+      Icons.star,
+      color: Colors.amber,
+      size: 20,
+    );
   }
 }
 

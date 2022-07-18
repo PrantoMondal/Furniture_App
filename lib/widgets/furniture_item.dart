@@ -105,19 +105,15 @@ class FurnitureItem extends StatelessWidget {
               ],
             ),
           ),
-          // onTap: () {
-          //   Navigator.push(
-          //       context,
-          //       MaterialPageRoute(builder: (context) =>  FurnitureDetails(furniture))
-          // },
+
         ));
   }
 
   Icon starBuild() {
     return Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                              size: 20,
-                            );
+    Icons.star,
+    color: Colors.amber,
+    size: 20,
+  );
   }
 }
