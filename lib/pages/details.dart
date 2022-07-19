@@ -68,7 +68,7 @@ class DetailsPage extends StatelessWidget {
             padding: EdgeInsets.only(left: 25, top: 16),
             child: Text(
                 'Lorem Ipsum is simply dummy text of the printing and typesetting. Lorem Ipsum has been standard dummy text.',
-                maxLines: 3,
+                maxLines:3,
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   color: Colors.black26,
@@ -181,10 +181,10 @@ class DetailsPage extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.only(right: 25),
                   child: Container(
-                    height: 40,
-                    width: MediaQuery.of(context).size.width*0.22,
+                    height: MediaQuery.of(context).size.height*0.05,
+                    width: MediaQuery.of(context).size.width*0.35,
                     child: RaisedButton(
                       child: Text("Add to cart",
                         style: TextStyle(color: Colors.white),
