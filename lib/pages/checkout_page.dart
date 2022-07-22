@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:furniture_app/widgets/icon_back_btn.dart';
 
@@ -11,87 +9,121 @@ class CheckoutPage extends StatefulWidget {
 }
 
 class _CheckoutPageState extends State<CheckoutPage> {
+  List<String> productName = ['Mona Chair', 'Mona Chair', 'Camo Chair'];
+
+  //List<bool> _selected = [true,true,false] ;
+  List<double> productPrice = [50.50, 70.50, 90.50];
+
+  List<String> productImage = [
+    'assets/images/f1.png',
+    'assets/images/f2.png',
+    'assets/images/f7.png',
+  ];
+
   @override
   Widget build(BuildContext context) {
-    final int _selected = 1;
+  var _selected = 1;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Cart',
-          style: TextStyle(
-              color: Colors.black,
-              fontFamily: 'Roboto',
-              fontWeight: FontWeight.bold),
-        ),
-        centerTitle: true,
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        leading: Padding(
-          padding: const EdgeInsets.only(top: 18.0, left: 22.0),
-          child: IconBackBtn(
-              iconData: Icons.arrow_back_ios_outlined,
-              press: () => Navigator.pop(context)),
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(top: 18.0, right: 12.0),
-            child: FlatButton(
-              onPressed: () {},
-              child: Icon(
-                Icons.delete_outline,
-                color: Colors.blue,
-              ),
-            ),
-          )
-        ],
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ListTile(
-            leading: SizedBox(
-              child: Radio<int>(
-                value: 1,
-                groupValue: _selected,
-                onChanged: (value) {
-                  setState(() {});
-                },
-              ),
-            ),
-            title: Container(
-              child: Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                color: Color(0xFFDEF5FF),
-                child: Image.asset('assets/images/f1.png'),
-              ),
-            ),
-            trailing: Padding(
-              padding: const EdgeInsets.only(top: 0, left: 20, right: 50),
-              child: Column(
-                children: [
-                  Text(
-                    'Mona Chair',
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontFamily: 'Poppins',
-                        color: Color(0xFF787878)),
-                  ),
-                  Text(
-                    '\$ 50.50',
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: 'Poppins',
-                        color: Color(0xFF1A1919)),
-                  ),
-                ],
-              ),
-            ),
+        appBar: AppBar(
+          title: Text(
+            'Cart',
+            style: TextStyle(
+                color: Colors.black,
+                fontFamily: 'Roboto',
+                fontWeight: FontWeight.bold),
           ),
-        ],
-      ),
-    );
+          centerTitle: true,
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          leading: Padding(
+            padding: const EdgeInsets.only(top: 18.0, left: 22.0),
+            child: IconBackBtn(
+                iconData: Icons.arrow_back_ios_outlined,
+                press: () => Navigator.pop(context)),
+          ),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(top: 18.0, right: 12.0),
+              child: FlatButton(
+                onPressed: () {},
+                child: Icon(
+                  Icons.delete_outline,
+                  color: Colors.blue,
+                ),
+              ),
+            )
+          ],
+        ),
+        body: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                  itemCount: productName.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: Radio<int>(
+                                  value: 1,
+                                  groupValue: _selected,
+                                  onChanged: (value) {
+                                    setState(() {});
+                                  },
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 6),
+                                child: Card(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(25),
+                                  ),
+                                  color: Color(0xFFDEF5FF),
+                                  child: Image.asset(
+                                    productImage[index].toString(),
+                                    height:
+                                        MediaQuery.of(context).size.height * 0.15,
+                                    width:
+                                        MediaQuery.of(context).size.height * 0.15,
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 30,right: 10),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      productName[index].toString(),
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          fontFamily: 'Poppins',
+                                          color: Color(0xFF787878)),
+                                    ),
+                                    Text(
+                                      productPrice[index].toString(),
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontFamily: 'Poppins',
+                                          color: Color(0xFF1A1919)),
+                                    ),
+
+
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    );
+                  }),
+            )
+          ],
+        ));
   }
 }
