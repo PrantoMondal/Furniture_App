@@ -188,15 +188,15 @@ class DetailsPage extends StatelessWidget {
                     child: RaisedButton(
                       child: Text("Add to cart",
                         style: TextStyle(color: Colors.white),
-
                       ),
+                      elevation: 16,
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => const CheckoutPage()),
                         );
                       },
-                      color: Colors.blueAccent,
+                      color: Color(0xFF00B2FF),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
