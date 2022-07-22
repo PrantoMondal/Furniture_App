@@ -112,6 +112,52 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                           color: Color(0xFF1A1919)),
                                     ),
 
+                                    Row(
+                                      children: [
+                                        Container(
+                                          alignment: Alignment.center,
+                                          height: 24,
+                                          width: 24,
+                                            decoration: BoxDecoration(
+                                              color: Color(0xFF220D0D),
+                                              borderRadius: BorderRadius.circular(16),
+                                            ),
+                                          child: Row(
+                                            children: [
+                                              Icon(
+                                                Icons.remove,
+                                                color: Colors.white,
+                                              ),
+                                              
+                                            ],
+                                          ),
+                                          
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                                          child: Text('1',style: TextStyle(fontSize: 24,color:Color(0xFF1A1919)),),
+                                        ),
+                                        Container(
+                                          alignment: Alignment.center,
+                                          height: 24,
+                                          width: 24,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFF220D0D),
+                                            borderRadius: BorderRadius.circular(16),
+                                          ),
+                                          child: Row(
+                                            children: [
+                                              Icon(
+                                                Icons.add,
+                                                color: Colors.white,
+                                              ),
+
+                                            ],
+                                          ),
+
+                                        ),
+                                      ],
+                                    )
 
                                   ],
                                 ),
