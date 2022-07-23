@@ -20,18 +20,23 @@ class _CheckoutPageState extends State<CheckoutPage> {
     'assets/images/f2.png',
     'assets/images/f7.png',
   ];
-
+  int _itemCount = 1;
   @override
   Widget build(BuildContext context) {
     var _selected = 1;
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Cart',
-          style: TextStyle(
-              color: Colors.black,
-              fontFamily: 'Roboto',
-              fontWeight: FontWeight.bold),
+        title: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            'Cart',
+            style: TextStyle(
+                color: Colors.black,
+                fontFamily: 'Roboto',
+                fontSize: 24,
+                fontWeight: FontWeight.bold),
+          ),
         ),
         centerTitle: true,
         elevation: 0,
@@ -113,56 +118,24 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                         fontFamily: 'Poppins',
                                         color: Color(0xFF1A1919)),
                                   ),
-                                  Row(
-                                    children: [
-                                      Container(
-                                        alignment: Alignment.center,
-                                        height: 24,
-                                        width: 24,
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFF220D0D),
-                                          borderRadius:
-                                              BorderRadius.circular(16),
-                                        ),
-                                        child: Row(
-                                          children: [
-                                            Icon(
-                                              Icons.remove,
-                                              color: Colors.white,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 8),
-                                        child: Text(
-                                          '1',
-                                          style: TextStyle(
-                                              fontSize: 24,
-                                              color: Color(0xFF1A1919)),
-                                        ),
-                                      ),
-                                      Container(
-                                        alignment: Alignment.center,
-                                        height: 24,
-                                        width: 24,
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFF220D0D),
-                                          borderRadius:
-                                              BorderRadius.circular(16),
-                                        ),
-                                        child: Row(
-                                          children: [
-                                            Icon(
-                                              Icons.add,
-                                              color: Colors.white,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  )
+                                  Container(
+                                      child: Row(children: [
+                                    IconButton(
+                                        icon: Icon(Icons.remove),
+                                        onPressed: () {
+                                          setState(() {
+                                            _itemCount--;
+                                          });
+                                        }),
+                                    Text(_itemCount.toString()),
+                                    IconButton(
+                                        icon: Icon(Icons.add),
+                                        onPressed: () {
+                                          setState(() {
+                                            _itemCount++;
+                                          });
+                                        })
+                                  ]))
                                 ],
                               ),
                             )
@@ -193,5 +166,3 @@ class _CheckoutPageState extends State<CheckoutPage> {
     );
   }
 }
-
-

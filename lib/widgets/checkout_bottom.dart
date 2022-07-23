@@ -101,7 +101,7 @@ class CheckoutBottomWidget extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 22, right: 22, top: 12),
+          padding: const EdgeInsets.only(left: 22, right: 22, top: 22),
           child: ButtonTheme(
             minWidth: MediaQuery.of(context).size.width,
             height: 50.0,
@@ -111,6 +111,7 @@ class CheckoutBottomWidget extends StatelessWidget {
                 fontFamily: 'Poppins',
                 fontSize: 20),
               ),
+              elevation: 16,
 
               onPressed: () {
                 Navigator.push(
@@ -120,7 +121,7 @@ class CheckoutBottomWidget extends StatelessWidget {
               },
               color: Color(0xFF00B2FF),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(30),
               ),
             ),
           ),
